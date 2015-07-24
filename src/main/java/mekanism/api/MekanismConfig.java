@@ -24,6 +24,7 @@ public class MekanismConfig
 		public static int copperPerChunk = 16;
 		public static int tinPerChunk = 14;
 		public static int saltPerChunk = 2;
+		public static int brinePerSalt = 30;
 		public static int obsidianTNTDelay = 100;
 		public static int UPDATE_DELAY = 10;
 		public static int VOICE_PORT = 36123;

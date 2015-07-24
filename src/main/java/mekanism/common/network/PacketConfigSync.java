@@ -52,6 +52,7 @@ public class PacketConfigSync implements IMessageHandler<ConfigSyncMessage, IMes
 			dataStream.writeInt(general.maxUpgradeMultiplier);
 			dataStream.writeInt(general.activeType.ordinal());
 			dataStream.writeDouble(general.minerSilkMultiplier);
+			dataStream.writeInt(general.brinePerSalt);
 			dataStream.writeBoolean(general.blacklistIC2);
 			dataStream.writeBoolean(general.blacklistRF);
 			dataStream.writeDouble(general.armoredJetpackDamageRatio);
@@ -129,6 +130,7 @@ public class PacketConfigSync implements IMessageHandler<ConfigSyncMessage, IMes
 			general.maxUpgradeMultiplier = dataStream.readInt();
 			general.activeType = EnergyType.values()[dataStream.readInt()];
 			general.minerSilkMultiplier = dataStream.readDouble();
+			general.brinePerSalt = dataStream.readInt();
 			general.blacklistIC2 = dataStream.readBoolean();
 			general.blacklistRF = dataStream.readBoolean();
 			general.armoredJetpackDamageRatio = dataStream.readDouble();

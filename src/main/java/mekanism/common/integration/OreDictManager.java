@@ -12,6 +12,7 @@ import mekanism.api.gas.GasStack;
 import mekanism.api.infuse.InfuseObject;
 import mekanism.api.infuse.InfuseRegistry;
 import mekanism.api.util.StackUtils;
+import mekanism.api.MekanismConfig.general;
 import mekanism.common.Mekanism;
 import mekanism.common.MekanismItems;
 import mekanism.common.Resource;
@@ -73,7 +74,7 @@ public final class OreDictManager
 		
 		for(ItemStack ore : OreDictionary.getOres("dustSalt"))
 		{
-			RecipeHandler.addChemicalOxidizerRecipe(StackUtils.size(ore, 1), new GasStack(GasRegistry.getGas("brine"), 15));
+			RecipeHandler.addChemicalOxidizerRecipe(StackUtils.size(ore, 1), new GasStack(GasRegistry.getGas("brine"), general.brinePerSalt));
 		}
 		
 		for(ItemStack ore : OreDictionary.getOres("dustRefinedObsidian"))
