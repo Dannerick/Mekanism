@@ -20,18 +20,22 @@ public abstract class TileEntityNoisyElectricBlock extends TileEntityElectricBlo
 	/** The bundled URL of this machine's sound effect */
 	@SideOnly(Side.CLIENT)
 	public SoundWrapper sound;
+	
+	/** The path of this machine's sound */
+	public String soundPath;
 
 	/**
 	 * The base of all blocks that deal with electricity and make noise.
 	 *
+	 * @param sound     - the sound path of this block
 	 * @param name      - full name of this block
 	 * @param maxEnergy - how much energy this block can store
 	 */
-	public TileEntityNoisyElectricBlock(String soundPath, String name, double maxEnergy)
+	public TileEntityNoisyElectricBlock(String sound, String name, double maxEnergy)
 	{
 		super(name, maxEnergy);
 		
-		soundURL = HolidayManager.filterSound(new ResourceLocation("mekanism", "tile." + soundPath));
+		soundPath = sound;
 	}
 
 	@Override
@@ -104,7 +108,10 @@ public abstract class TileEntityNoisyElectricBlock extends TileEntityElectricBlo
 
 		if(worldObj.isRemote)
 		{
-			initSounds();
+			try {
+				soundURL = HolidayManager.filterSound(new ResourceLocation("mekanism", "tile." + soundPath));
+				initSounds();
+			} catch(Throwable t) {}
 		}
 	}
 
